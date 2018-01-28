@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+     {{ arrmixCourse.displayname ? arrmixCourse.displayname : arrmixCourse.fullname }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-card>
+		<ion-card-header>
+			About the course
+		</ion-card-header>
+		<ion-card-content>
+			<div [innerHTML]="arrmixCourse.summary"></div>
+		</ion-card-content>
+		</ion-card>
+
+		<ion-item-sliding *ngFor="let course of arrmixContents">
+			<ion-item item-right (click) ="handleViewCourseContent( course )" *ngIf="0 != course.section">
+				<h2>
+					{{ course.name }}
+				</h2>
+				<button ion-button clear item-right>
+					<ion-icon name="ios-arrow-forward-outline"></ion-icon>
+				</button>
+			</ion-item>
+		</ion-item-sliding>
+
+		<ion-card *ngIf="undefined == arrmixContents">
+			<ion-card-content>
+				<button ion-button (click) ="handleEnrolUserToCourse( arrmixCourse )">
+					Enrol Me
+				</button>
+			</ion-card-content>
+		</ion-card>
+	</ion-list>
+</ion-content>

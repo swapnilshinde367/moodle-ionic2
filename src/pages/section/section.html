@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+     {{ arrmixCourse.name }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-card *ngIf="undefined != arrmixCourse">
+			<ion-card-content>
+				<!--<button ion-button (click) ="handleEnrolUserToCourse( arrmixCourse )">
+					Enrol Me
+				</button>-->
+				<p>
+					{{ arrmixCourse.name }}
+				</p>
+				<p [innerHTML]="arrmixCourse.summary"></p>
+			</ion-card-content>
+		</ion-card>
+
+		<ion-card *ngFor="let module of arrmixCourse.modules">
+			<ion-card-content>
+				<ion-item *ngIf="undefined != arrmixCourse.modules">
+					<h2>
+						{{ module.name }}
+					</h2>
+					<p name='photoURL(module.url)' >
+						{{ module.url }}
+						<!--<iframe src="{{ module.url }}" frameborder="0"></iframe>-->
+						<iframe [src]='photoURL(module.url)' width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</p>
+					<ion-item-sliding *ngFor="let content of module.contents">
+					<ion-item>
+						<p>
+							{{ content.content }}
+						</p>
+					</ion-item>
+				</ion-item-sliding>
+				</ion-item>
+			</ion-card-content>
+		</ion-card>
+	</ion-list>
+</ion-content>
