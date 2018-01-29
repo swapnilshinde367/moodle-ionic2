@@ -19,7 +19,7 @@ export class CsaService {
     constructor( http:Http ) {
         this.http               = http;
         this.intRoleId          = 5; // Student Role Id
-        this.strAuthUrl         = 'http://14.1.197.36/lms-upgradedlogin/token.php?service=moodle_mobile_app';
+        this.strAuthUrl         = 'http://14.1.197.36/lms-upgraded/login/token.php?service=moodle_mobile_app';
         this.strEnrolmentKey    = 'keytosuccess';
         this.strWebServiceUrl   = 'http://14.1.197.36/lms-upgradedwebservice/rest/server.php?&moodlewsrestformat=json';
     }
